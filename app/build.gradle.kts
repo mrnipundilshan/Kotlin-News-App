@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.datastore.core)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.ui.test.junit4)
@@ -53,4 +54,7 @@ dependencies {
 
     //Splash Api
     implementation(libs.androidx.core.splashscreen)
+
+    //Datastore
+    implementation(libs.androidx.datastore.preferences)
 }
