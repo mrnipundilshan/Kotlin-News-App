@@ -13,6 +13,7 @@ kotlin = "2.2.10"
 composeBom = "2026.02.01"
 uiTestJunit4 = "1.12.1"
 datastoreCore = "1.2.1"
+ksp = "2.2.10-2.0.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -40,3 +41,5 @@ androidx-datastore-core = { group = "androidx.datastore", name = "datastore-core
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt-android-gradle = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
