@@ -7,7 +7,7 @@ import com.nipunapps.newsapp.R
 data class Page(
     val title: String,
     val description: String,
-    @DrawableRes val image: Int
+    @param:DrawableRes val image: Int
 )
 
 val pages = listOf(
@@ -25,5 +25,5 @@ val pages = listOf(
         title = LoremIpsum(words = 4).values.first(),
         description = LoremIpsum(words = 12).values.first(),
         image = R.drawable.onboarding3
-)
+    )
 )
