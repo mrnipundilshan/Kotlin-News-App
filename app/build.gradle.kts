@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -57,4 +59,8 @@ dependencies {
 
     //Datastore
     implementation(libs.androidx.datastore.preferences)
+
+    //Dagger Hilt
+    implementation(libs.hilt.android)
+
 }
