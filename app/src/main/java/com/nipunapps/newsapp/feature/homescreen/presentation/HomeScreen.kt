@@ -23,7 +23,9 @@ import androidx.compose.ui.unit.sp
 import androidx.paging.compose.LazyPagingItems
 import com.nipunapps.newsapp.R
 import com.nipunapps.newsapp.core.components.ArticlesList
+import com.nipunapps.newsapp.core.dimension.Dimension.ExtraSmallPadding2
 import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding1
+import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding2
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
 import com.nipunapps.newsapp.feature.homescreen.presentation.components.SearchBar
 import com.nipunapps.newsapp.feature.navgraph.Route
@@ -59,6 +61,7 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit){
         Spacer(modifier = Modifier.height(MediumPadding1))
 
         SearchBar(
+            modifier = Modifier.padding(horizontal = ExtraSmallPadding2),
             text = "",
             readOnly = true,
             onValueChange = {},

@@ -19,6 +19,7 @@ class NewsPagingSource (
             val newsResponse = newsApi.getNews(sources = sources, page = page)
 
             Log.d("NewsPagingSource", "Response: $newsResponse")
+
             totalNewsCount += newsResponse.articles.size
             val articles = newsResponse.articles
                 .distinctBy { it.title }

@@ -52,7 +52,7 @@ fun SearchBar(
         }
     }
 
-    Box(modifier = Modifier){
+    Box(modifier = modifier){
         TextField(
             modifier = Modifier
                 .fillMaxWidth()
