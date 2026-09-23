@@ -84,7 +84,6 @@ dependencies {
     implementation(libs.coil.compose)
 
     //Paging 3
-    //implementation "androidx.paging:paging-compose:3.2.0-rc01"
     implementation(libs.androidx.paging.runtime)
 
 }
