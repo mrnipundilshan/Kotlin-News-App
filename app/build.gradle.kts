@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.datastore.core)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.paging.common)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.ui.test.junit4)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -72,5 +73,8 @@ dependencies {
 
     //Compose Foundation
     implementation(libs.androidx.compose.foundation)
+
+    //Retrofit
+    implementation(libs.retrofit)
 
 }
