@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.androidx.datastore.core)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.paging.common)
+    implementation(libs.androidx.paging.compose)
     implementation(libs.volley)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.ui.test.junit4)
@@ -81,5 +82,9 @@ dependencies {
 
     //Coil
     implementation(libs.coil.compose)
+
+    //Paging 3
+    //implementation "androidx.paging:paging-compose:3.2.0-rc01"
+    implementation(libs.androidx.paging.runtime)
 
 }
