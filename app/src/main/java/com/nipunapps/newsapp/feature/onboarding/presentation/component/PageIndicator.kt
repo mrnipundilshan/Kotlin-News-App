@@ -1,4 +1,4 @@
-package com.nipunapps.newsapp.core.components
+package com.nipunapps.newsapp.feature.onboarding.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
