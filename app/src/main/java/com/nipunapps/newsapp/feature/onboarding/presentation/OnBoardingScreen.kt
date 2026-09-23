@@ -28,11 +28,14 @@ import com.nipunapps.newsapp.core.components.PageIndicator
 import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding2
 import com.nipunapps.newsapp.core.dimension.Dimension.PageIndicatorWidth
 import com.nipunapps.newsapp.feature.onboarding.presentation.component.OnBoardingPage
+import com.nipunapps.newsapp.feature.onboarding.presentation.viewmodels.OnBoardingEvent
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen(){
+fun OnBoardingScreen(
+    event: (OnBoardingEvent) -> Unit
+){
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -85,8 +88,8 @@ fun OnBoardingScreen(){
             NewsButton(text = buttonState.value[1],
                 onCLick = {
                     scope.launch{
-                        if (pagerState.currentPage == 3){
-                            //TODO: Navigate to home screen
+                        if (pagerState.currentPage == 2){
+                           event(OnBoardingEvent.SaveAppEntry)
                         } else {
                             pagerState.animateScrollToPage(
                                 page = pagerState.currentPage + 1
