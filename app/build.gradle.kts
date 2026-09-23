@@ -67,4 +67,10 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 
+    //Accompanist
+    implementation(libs.accompanist.systemuicontroller)
+
+    //Compose Foundation
+    implementation(libs.androidx.compose.foundation)
+
 }
