@@ -35,7 +35,7 @@ object AppModule {
     @Singleton
     fun provideLocalUserManagerRepository(
         application: Application
-    ) : LocalUserManagerRepository = LocalUserManagerRepositoryImpl(application)
+    ): LocalUserManagerRepository = LocalUserManagerRepositoryImpl(application)
 
 
     @Provides
@@ -49,7 +49,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesNewsApi(): NewsApi{
+    fun providesNewsApi(): NewsApi {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -65,7 +65,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNewsUseCases(newsRepository: NewsRepository): NewsUseCases{
+    fun provideNewsUseCases(newsRepository: NewsRepository): NewsUseCases {
         return NewsUseCases(
             getNews = GetNews(newsRepository),
             searchNews = SearchNews(newsRepository)
@@ -91,4 +91,5 @@ object AppModule {
     fun providesNewsDao(
         newsDatabase: NewsDatabase
     ): NewsDao = newsDatabase.newsDao
+
 }
