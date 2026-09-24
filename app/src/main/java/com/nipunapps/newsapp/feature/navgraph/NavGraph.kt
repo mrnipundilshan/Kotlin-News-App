@@ -13,6 +13,8 @@ import androidx.navigation.navigation
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.nipunapps.newsapp.feature.homescreen.presentation.HomeScreen
 import com.nipunapps.newsapp.feature.homescreen.presentation.viewmodels.HomeViewModel
+import com.nipunapps.newsapp.feature.homescreen.search.SearchScreen
+import com.nipunapps.newsapp.feature.homescreen.search.SearchViewModel
 import com.nipunapps.newsapp.feature.onboarding.presentation.OnBoardingScreen
 import com.nipunapps.newsapp.feature.onboarding.presentation.viewmodels.OnBoardingViewModel
 
@@ -46,9 +48,8 @@ fun NavGraph(
             composable(
                 route = Route.NewsNavigatorScreen.route
             ){
-                val viewModel: HomeViewModel = hiltViewModel()
-                val articles = viewModel.news.collectAsLazyPagingItems()
-                HomeScreen(articles = articles, navigate = {})
+                val viewModel: SearchViewModel = hiltViewModel()
+                SearchScreen(state = viewModel.state.value, event = viewModel::onEvent, navigate = {})
             }
         }
 

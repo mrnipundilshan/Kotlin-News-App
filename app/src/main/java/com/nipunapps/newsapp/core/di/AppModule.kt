@@ -2,11 +2,12 @@ package com.nipunapps.newsapp.core.di
 
 import android.app.Application
 import com.nipunapps.newsapp.core.utils.Constants.BASE_URL
-import com.nipunapps.newsapp.feature.homescreen.data.datasource.NewsApi
+import com.nipunapps.newsapp.core.network.NewsApi
 import com.nipunapps.newsapp.feature.homescreen.data.repository.NewsRepositoryImpl
 import com.nipunapps.newsapp.feature.homescreen.domain.repository.NewsRepository
 import com.nipunapps.newsapp.feature.homescreen.domain.usecases.GetNews
 import com.nipunapps.newsapp.feature.homescreen.domain.usecases.NewsUseCases
+import com.nipunapps.newsapp.feature.homescreen.domain.usecases.SearchNews
 import com.nipunapps.newsapp.feature.onboarding.data.repository.LocalUserManagerRepositoryImpl
 import com.nipunapps.newsapp.feature.onboarding.domain.repository.LocalUserManagerRepository
 import com.nipunapps.newsapp.feature.onboarding.domain.usecases.AppEntryUseCases
@@ -18,7 +19,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.annotation.Signed
 import javax.inject.Singleton
 
 @Module
@@ -61,7 +61,8 @@ object AppModule {
     @Singleton
     fun provideNewsUseCases(newsRepository: NewsRepository): NewsUseCases{
         return NewsUseCases(
-            getNews = GetNews(newsRepository)
+            getNews = GetNews(newsRepository),
+            searchNews = SearchNews(newsRepository)
         )
     }
 }
