@@ -1,8 +1,13 @@
 package com.nipunapps.newsapp.core.di
 
 import android.app.Application
+import androidx.room3.Room
 import com.nipunapps.newsapp.core.utils.Constants.BASE_URL
 import com.nipunapps.newsapp.core.network.NewsApi
+import com.nipunapps.newsapp.core.utils.Constants.NEWS_DATABASE_NAME
+import com.nipunapps.newsapp.feature.homescreen.data.local.NewsDao
+import com.nipunapps.newsapp.feature.homescreen.data.local.NewsDatabase
+import com.nipunapps.newsapp.feature.homescreen.data.local.NewsTypeConverter
 import com.nipunapps.newsapp.feature.homescreen.data.repository.NewsRepositoryImpl
 import com.nipunapps.newsapp.feature.homescreen.domain.repository.NewsRepository
 import com.nipunapps.newsapp.feature.homescreen.domain.usecases.GetNews
@@ -20,6 +25,7 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -65,4 +71,24 @@ object AppModule {
             searchNews = SearchNews(newsRepository)
         )
     }
+
+    @Provides
+    @Singleton
+    fun provideNewsDatabase(
+        application: Application
+    ) : NewsDatabase {
+        return Room.databaseBuilder(
+            context = application,
+            klass = NewsDatabase::class.java,
+            name = NEWS_DATABASE_NAME
+        ).addColumnTypeConverter(NewsTypeConverter())
+            .fallbackToDestructiveMigration()
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun providesNewsDao(
+        newsDatabase: NewsDatabase
+    ): NewsDao = newsDatabase.newsDao
 }

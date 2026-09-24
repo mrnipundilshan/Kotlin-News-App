@@ -88,4 +88,9 @@ dependencies {
 
     implementation(libs.androidx.compose.material.icons.extended)
 
+    //Room
+    implementation(libs.androidx.room3.runtime)
+    ksp(libs.androidx.room3.compiler)
+
+
 }

@@ -35,10 +35,12 @@ fun DetailsTopBar(
     TopAppBar(
         title = {},
         modifier = Modifier.fillMaxWidth(),
-        colors = TopAppBarDefaults.mediumTopAppBarColors(
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent,
-            actionIconContentColor = colorResource(id = R.color.body),
-            navigationIconContentColor = colorResource(id = R.color.body)
+            scrolledContainerColor = Color.Unspecified,
+            navigationIconContentColor = colorResource(id = R.color.body),
+            titleContentColor = Color.Unspecified,
+            actionIconContentColor = colorResource(id = R.color.body)
         ),
         navigationIcon = {
             IconButton(onClick = onBackClick) {
