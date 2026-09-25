@@ -16,6 +16,24 @@ import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding1
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
 import com.nipunapps.newsapp.feature.homescreen.presentation.components.ArticleCard
 
+@Composable
+fun ArticlesList(
+    modifier: Modifier = Modifier,
+    articles: List<Article>,
+    onClick: (Article) -> Unit
+) {
+
+    LazyColumn(
+            modifier = modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(MediumPadding1),
+            contentPadding = PaddingValues(all = ExtraSmallPadding2)
+        ){
+            items(count = articles.size){
+                val article = articles[it]
+                    ArticleCard(article = article, onClick = { onClick(article) })
+                }
+            }
+}
 
 @Composable
 fun ArticlesList(
@@ -27,7 +45,7 @@ fun ArticlesList(
 
     if (handlePagingResult){
             LazyColumn(
-                modifier = Modifier.fillMaxSize(),
+                modifier = modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.spacedBy(MediumPadding1),
                 contentPadding = PaddingValues(all = ExtraSmallPadding2)
             ){

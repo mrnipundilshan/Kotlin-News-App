@@ -5,6 +5,9 @@ import androidx.room3.Room
 import com.nipunapps.newsapp.core.utils.Constants.BASE_URL
 import com.nipunapps.newsapp.core.network.NewsApi
 import com.nipunapps.newsapp.core.utils.Constants.NEWS_DATABASE_NAME
+import com.nipunapps.newsapp.feature.bookmark.domain.usecases.DeleteArticle
+import com.nipunapps.newsapp.feature.bookmark.domain.usecases.SelectArticles
+import com.nipunapps.newsapp.feature.bookmark.domain.usecases.UpsertArticle
 import com.nipunapps.newsapp.feature.homescreen.data.local.NewsDao
 import com.nipunapps.newsapp.feature.homescreen.data.local.NewsDatabase
 import com.nipunapps.newsapp.feature.homescreen.data.local.NewsTypeConverter
@@ -65,10 +68,16 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNewsUseCases(newsRepository: NewsRepository): NewsUseCases {
+    fun provideNewsUseCases(
+        newsRepository: NewsRepository,
+        newsDao: NewsDao
+    ): NewsUseCases {
         return NewsUseCases(
             getNews = GetNews(newsRepository),
-            searchNews = SearchNews(newsRepository)
+            searchNews = SearchNews(newsRepository),
+            upsertArticle = UpsertArticle(newsDao),
+            selectArticles = SelectArticles(newsDao),
+            deleteArticle = DeleteArticle(newsDao)
         )
     }
 
