@@ -8,6 +8,7 @@ import com.nipunapps.newsapp.core.utils.Constants.NEWS_DATABASE_NAME
 import com.nipunapps.newsapp.feature.bookmark.domain.usecases.DeleteArticle
 import com.nipunapps.newsapp.feature.bookmark.domain.usecases.SelectArticles
 import com.nipunapps.newsapp.feature.bookmark.domain.usecases.UpsertArticle
+import com.nipunapps.newsapp.feature.detail.domain.usecases.SelectArticle
 import com.nipunapps.newsapp.feature.homescreen.data.local.NewsDao
 import com.nipunapps.newsapp.feature.homescreen.data.local.NewsDatabase
 import com.nipunapps.newsapp.feature.homescreen.data.local.NewsTypeConverter
@@ -77,7 +78,8 @@ object AppModule {
             searchNews = SearchNews(newsRepository),
             upsertArticle = UpsertArticle(newsDao),
             selectArticles = SelectArticles(newsDao),
-            deleteArticle = DeleteArticle(newsDao)
+            deleteArticle = DeleteArticle(newsDao),
+            selectArticle = SelectArticle(newsDao)
         )
     }
 
