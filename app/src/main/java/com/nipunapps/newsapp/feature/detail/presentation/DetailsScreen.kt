@@ -44,7 +44,7 @@ fun DetailsScreen(
             .statusBarsPadding()
     ) {
         DetailsTopBar(
-            onBookmarkClick = {
+            onBrowsingClick = {
                 Intent(Intent.ACTION_VIEW).also {
                     it.data = article.url.toUri()
                     if (it.resolveActivity(context.packageManager) != null){
@@ -61,8 +61,8 @@ fun DetailsScreen(
                     }
                 }
             },
-            onBrowsingClick = {
-                event(DetailsEvent.SaveArticle) },
+            onBookmarkClick = {
+                event(DetailsEvent.UpsertDeleteArticle(article))},
 
             onBackClick = navigateUp
         )

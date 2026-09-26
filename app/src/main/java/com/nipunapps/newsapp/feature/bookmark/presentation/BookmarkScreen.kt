@@ -15,13 +15,14 @@ import androidx.compose.ui.text.font.FontWeight
 import com.nipunapps.newsapp.R
 import com.nipunapps.newsapp.core.components.ArticlesList
 import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding1
+import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
 import com.nipunapps.newsapp.feature.navgraph.Route
 import org.w3c.dom.Text
 
 @Composable
 fun BookMarkScreen(
     state: BookmarkState,
-    navigate: (String) -> Unit
+    navigateToDetails: (Article) -> Unit
 ){
     Column(
         modifier = Modifier
@@ -37,6 +38,6 @@ fun BookMarkScreen(
 
         Spacer(modifier = Modifier.height(MediumPadding1))
 
-        ArticlesList(articles = state.articles, onClick = {navigate(Route.DetailsScreen.route)})
+        ArticlesList(articles = state.articles, onClick = { navigateToDetails(it) })
     }
 }

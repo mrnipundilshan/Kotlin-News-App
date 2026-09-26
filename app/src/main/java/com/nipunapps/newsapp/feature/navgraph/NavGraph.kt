@@ -17,6 +17,7 @@ import com.nipunapps.newsapp.feature.homescreen.presentation.HomeScreen
 import com.nipunapps.newsapp.feature.homescreen.presentation.viewmodels.HomeViewModel
 import com.nipunapps.newsapp.feature.homescreen.search.SearchScreen
 import com.nipunapps.newsapp.feature.homescreen.search.SearchViewModel
+import com.nipunapps.newsapp.feature.navigator.NewsNavigator
 import com.nipunapps.newsapp.feature.onboarding.presentation.OnBoardingScreen
 import com.nipunapps.newsapp.feature.onboarding.presentation.viewmodels.OnBoardingViewModel
 
@@ -50,8 +51,7 @@ fun NavGraph(
             composable(
                 route = Route.NewsNavigatorScreen.route
             ){
-                val viewModel: BookmarkViewModel = hiltViewModel()
-                BookMarkScreen(state = viewModel.state.value, navigate = {})
+                NewsNavigator()
             }
         }
 

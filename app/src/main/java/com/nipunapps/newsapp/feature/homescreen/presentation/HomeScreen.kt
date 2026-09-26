@@ -70,7 +70,7 @@ fun HomeScreen(
             readOnly = true,
             onValueChange = {},
             onClick = {
-                navigateToSearch
+                navigateToSearch()
             },
             onSearch = {}
         )
@@ -93,7 +93,7 @@ fun HomeScreen(
             modifier = Modifier.padding(horizontal = MediumPadding1),
             articles = articles,
             onClick = {
-               navigateToDetails
+                navigateToDetails(it)
             })
     }
 }
