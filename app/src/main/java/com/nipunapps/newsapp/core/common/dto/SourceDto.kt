@@ -1,4 +1,4 @@
-package com.nipunapps.newsapp.feature.homescreen.data.dto
+package com.nipunapps.newsapp.core.common.dto
 
 data class SourceDto(
     val id: String?,

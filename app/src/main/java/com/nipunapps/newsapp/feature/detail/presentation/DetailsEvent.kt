@@ -1,6 +1,6 @@
 package com.nipunapps.newsapp.feature.detail.presentation
 
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
+import com.nipunapps.newsapp.core.common.model.Article
 
 sealed class DetailsEvent {
 

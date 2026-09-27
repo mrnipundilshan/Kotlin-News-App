@@ -1,7 +1,6 @@
 package com.nipunapps.newsapp.feature.detail.presentation
 
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -20,14 +19,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.nipunapps.newsapp.feature.detail.presentation.component.DetailsTopBar
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
+import com.nipunapps.newsapp.core.common.model.Article
 import androidx.core.net.toUri
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.nipunapps.newsapp.R
 import com.nipunapps.newsapp.core.dimension.Dimension.ArticleImageHeight
 import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding1
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Source
+import com.nipunapps.newsapp.core.common.model.Source
 import com.nipunapps.newsapp.ui.theme.NewsAppTheme
 
 @Composable

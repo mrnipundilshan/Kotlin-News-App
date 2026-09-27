@@ -16,7 +16,7 @@ import com.nipunapps.newsapp.feature.homescreen.data.repository.NewsRepositoryIm
 import com.nipunapps.newsapp.feature.homescreen.domain.repository.NewsRepository
 import com.nipunapps.newsapp.feature.homescreen.domain.usecases.GetNews
 import com.nipunapps.newsapp.feature.homescreen.domain.usecases.NewsUseCases
-import com.nipunapps.newsapp.feature.homescreen.domain.usecases.SearchNews
+import com.nipunapps.newsapp.feature.search.domain.usecases.SearchNews
 import com.nipunapps.newsapp.feature.onboarding.data.repository.LocalUserManagerRepositoryImpl
 import com.nipunapps.newsapp.feature.onboarding.domain.repository.LocalUserManagerRepository
 import com.nipunapps.newsapp.feature.onboarding.domain.usecases.AppEntryUseCases

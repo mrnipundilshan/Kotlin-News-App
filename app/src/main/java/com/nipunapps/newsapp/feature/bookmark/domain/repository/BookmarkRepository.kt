@@ -1,6 +1,6 @@
 package com.nipunapps.newsapp.feature.bookmark.domain.repository
 
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
+import com.nipunapps.newsapp.core.common.model.Article
 import kotlinx.coroutines.flow.Flow
 
 interface BookmarkRepository {

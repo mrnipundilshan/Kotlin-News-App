@@ -25,7 +25,7 @@ import com.nipunapps.newsapp.feature.bookmark.presentation.viewmodels.BookmarkVi
 import com.nipunapps.newsapp.feature.detail.presentation.DetailsEvent
 import com.nipunapps.newsapp.feature.detail.presentation.DetailsScreen
 import com.nipunapps.newsapp.feature.detail.presentation.DetailsViewModel
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
+import com.nipunapps.newsapp.core.common.model.Article
 import com.nipunapps.newsapp.feature.homescreen.presentation.HomeScreen
 import com.nipunapps.newsapp.feature.homescreen.presentation.viewmodels.HomeViewModel
 import com.nipunapps.newsapp.feature.search.presentation.SearchScreen

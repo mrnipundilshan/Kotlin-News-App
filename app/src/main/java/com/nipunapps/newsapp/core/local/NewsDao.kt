@@ -5,7 +5,7 @@ import androidx.room3.Delete
 import androidx.room3.Insert
 import androidx.room3.OnConflictStrategy
 import androidx.room3.Query
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
+import com.nipunapps.newsapp.core.common.model.Article
 import kotlinx.coroutines.flow.Flow
 
 @Dao

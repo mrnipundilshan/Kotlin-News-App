@@ -6,14 +6,13 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.nipunapps.newsapp.core.dimension.Dimension.ExtraSmallPadding2
 import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding1
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
+import com.nipunapps.newsapp.core.common.model.Article
 import com.nipunapps.newsapp.feature.homescreen.presentation.components.ArticleCard
 
 @Composable

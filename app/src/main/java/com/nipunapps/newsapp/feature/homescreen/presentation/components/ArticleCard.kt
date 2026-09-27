@@ -31,8 +31,8 @@ import com.nipunapps.newsapp.core.dimension.Dimension.ArticleCardSize
 import com.nipunapps.newsapp.core.dimension.Dimension.ExtraSmallPadding
 import com.nipunapps.newsapp.core.dimension.Dimension.ExtraSmallPadding2
 import com.nipunapps.newsapp.core.dimension.Dimension.smallIconSize
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Source
+import com.nipunapps.newsapp.core.common.model.Article
+import com.nipunapps.newsapp.core.common.model.Source
 import com.nipunapps.newsapp.ui.theme.NewsAppTheme
 
 @Composable

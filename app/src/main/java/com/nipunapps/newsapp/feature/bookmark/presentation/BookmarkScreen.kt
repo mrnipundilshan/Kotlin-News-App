@@ -16,7 +16,7 @@ import com.nipunapps.newsapp.R
 import com.nipunapps.newsapp.core.components.ArticlesList
 import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding1
 import com.nipunapps.newsapp.feature.bookmark.presentation.viewmodels.BookmarkState
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
+import com.nipunapps.newsapp.core.common.model.Article
 
 @Composable
 fun BookMarkScreen(

@@ -1,8 +1,7 @@
 package com.nipunapps.newsapp.feature.bookmark.domain.usecases
 
 import com.nipunapps.newsapp.feature.bookmark.domain.repository.BookmarkRepository
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
-import com.nipunapps.newsapp.feature.homescreen.domain.repository.NewsRepository
+import com.nipunapps.newsapp.core.common.model.Article
 import kotlinx.coroutines.flow.Flow
 
 class SelectArticles(

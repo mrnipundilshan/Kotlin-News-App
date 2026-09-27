@@ -1,8 +1,8 @@
-package com.nipunapps.newsapp.feature.homescreen.data.mapper
+package com.nipunapps.newsapp.core.common.mapper
 
-import com.nipunapps.newsapp.feature.homescreen.data.dto.ArticleDto
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Source
+import com.nipunapps.newsapp.core.common.dto.ArticleDto
+import com.nipunapps.newsapp.core.common.model.Article
+import com.nipunapps.newsapp.core.common.model.Source
 
 
 fun ArticleDto.toDomain(): Article {

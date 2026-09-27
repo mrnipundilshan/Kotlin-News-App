@@ -2,7 +2,7 @@ package com.nipunapps.newsapp.core.local
 
 import androidx.room3.ColumnTypeConverter
 import androidx.room3.ProvidedColumnTypeConverter
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Source
+import com.nipunapps.newsapp.core.common.model.Source
 
 @ProvidedColumnTypeConverter
 class NewsTypeConverter {

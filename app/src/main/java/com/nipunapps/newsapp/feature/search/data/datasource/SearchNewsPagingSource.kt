@@ -1,11 +1,11 @@
-package com.nipunapps.newsapp.feature.homescreen.data.datasource
+package com.nipunapps.newsapp.feature.search.data.datasource
 
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.nipunapps.newsapp.core.network.NewsApi
-import com.nipunapps.newsapp.feature.homescreen.data.mapper.toDomain
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
+import com.nipunapps.newsapp.core.common.mapper.toDomain
+import com.nipunapps.newsapp.core.common.model.Article
 
 class SearchNewsPagingSource (
     private val newsApi : NewsApi,

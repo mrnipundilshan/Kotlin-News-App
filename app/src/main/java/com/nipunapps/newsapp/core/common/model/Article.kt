@@ -1,4 +1,4 @@
-package com.nipunapps.newsapp.feature.homescreen.domain.model
+package com.nipunapps.newsapp.core.common.model
 
 
 import android.os.Parcelable

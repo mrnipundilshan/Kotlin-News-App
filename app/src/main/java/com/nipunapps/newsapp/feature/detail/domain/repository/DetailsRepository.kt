@@ -1,6 +1,6 @@
 package com.nipunapps.newsapp.feature.detail.domain.repository
 
-import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
+import com.nipunapps.newsapp.core.common.model.Article
 
 interface DetailsRepository {
 

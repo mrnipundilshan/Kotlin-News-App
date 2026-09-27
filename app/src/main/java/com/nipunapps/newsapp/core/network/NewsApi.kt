@@ -1,7 +1,7 @@
 package com.nipunapps.newsapp.core.network
 
 import com.nipunapps.newsapp.core.utils.Constants
-import com.nipunapps.newsapp.feature.homescreen.data.dto.NewsResponse
+import com.nipunapps.newsapp.core.common.dto.NewsResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
