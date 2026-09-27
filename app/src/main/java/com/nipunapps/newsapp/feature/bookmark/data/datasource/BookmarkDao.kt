@@ -1,4 +1,4 @@
-package com.nipunapps.newsapp.core.local
+package com.nipunapps.newsapp.feature.bookmark.data.datasource
 
 import androidx.room3.Dao
 import androidx.room3.Delete
@@ -9,7 +9,7 @@ import com.nipunapps.newsapp.core.common.model.Article
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface NewsDao {
+interface BookmarkDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(article: Article)
@@ -22,4 +22,5 @@ interface NewsDao {
 
     @Query("SELECT * FROM Article WHERE url=:url")
     suspend fun getArticle(url: String): Article?
+
 }
