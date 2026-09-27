@@ -1,4 +1,4 @@
-package com.nipunapps.newsapp.feature.homescreen.search
+package com.nipunapps.newsapp.feature.search.presentation.viewmodels
 
 sealed class SearchEvent {
 

@@ -1,22 +1,11 @@
 package com.nipunapps.newsapp.feature.navgraph
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import androidx.navigation.NavGraph
-import androidx.navigation.NavHost
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
-import androidx.paging.compose.collectAsLazyPagingItems
-import com.nipunapps.newsapp.feature.bookmark.presentation.BookMarkScreen
-import com.nipunapps.newsapp.feature.bookmark.presentation.BookmarkViewModel
-import com.nipunapps.newsapp.feature.homescreen.presentation.HomeScreen
-import com.nipunapps.newsapp.feature.homescreen.presentation.viewmodels.HomeViewModel
-import com.nipunapps.newsapp.feature.homescreen.search.SearchScreen
-import com.nipunapps.newsapp.feature.homescreen.search.SearchViewModel
 import com.nipunapps.newsapp.feature.navigator.NewsNavigator
 import com.nipunapps.newsapp.feature.onboarding.presentation.OnBoardingScreen
 import com.nipunapps.newsapp.feature.onboarding.presentation.viewmodels.OnBoardingViewModel

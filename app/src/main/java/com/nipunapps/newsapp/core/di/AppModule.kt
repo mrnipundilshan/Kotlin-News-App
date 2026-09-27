@@ -9,9 +9,9 @@ import com.nipunapps.newsapp.feature.bookmark.domain.usecases.DeleteArticle
 import com.nipunapps.newsapp.feature.bookmark.domain.usecases.SelectArticles
 import com.nipunapps.newsapp.feature.bookmark.domain.usecases.UpsertArticle
 import com.nipunapps.newsapp.feature.detail.domain.usecases.SelectArticle
-import com.nipunapps.newsapp.feature.homescreen.data.local.NewsDao
-import com.nipunapps.newsapp.feature.homescreen.data.local.NewsDatabase
-import com.nipunapps.newsapp.feature.homescreen.data.local.NewsTypeConverter
+import com.nipunapps.newsapp.core.local.NewsDao
+import com.nipunapps.newsapp.core.local.NewsDatabase
+import com.nipunapps.newsapp.core.local.NewsTypeConverter
 import com.nipunapps.newsapp.feature.homescreen.data.repository.NewsRepositoryImpl
 import com.nipunapps.newsapp.feature.homescreen.domain.repository.NewsRepository
 import com.nipunapps.newsapp.feature.homescreen.domain.usecases.GetNews

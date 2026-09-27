@@ -1,4 +1,4 @@
-package com.nipunapps.newsapp.feature.homescreen.search
+package com.nipunapps.newsapp.feature.search.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -13,7 +13,8 @@ import com.nipunapps.newsapp.core.components.ArticlesList
 import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding1
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
 import com.nipunapps.newsapp.feature.homescreen.presentation.components.SearchBar
-import com.nipunapps.newsapp.feature.navgraph.Route
+import com.nipunapps.newsapp.feature.search.presentation.viewmodels.SearchEvent
+import com.nipunapps.newsapp.feature.search.presentation.viewmodels.SearchState
 
 @Composable
 fun SearchScreen (

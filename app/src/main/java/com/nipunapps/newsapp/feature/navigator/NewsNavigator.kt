@@ -21,15 +21,15 @@ import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.nipunapps.newsapp.R
 import com.nipunapps.newsapp.feature.bookmark.presentation.BookMarkScreen
-import com.nipunapps.newsapp.feature.bookmark.presentation.BookmarkViewModel
+import com.nipunapps.newsapp.feature.bookmark.presentation.viewmodels.BookmarkViewModel
 import com.nipunapps.newsapp.feature.detail.presentation.DetailsEvent
 import com.nipunapps.newsapp.feature.detail.presentation.DetailsScreen
 import com.nipunapps.newsapp.feature.detail.presentation.DetailsViewModel
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
 import com.nipunapps.newsapp.feature.homescreen.presentation.HomeScreen
 import com.nipunapps.newsapp.feature.homescreen.presentation.viewmodels.HomeViewModel
-import com.nipunapps.newsapp.feature.homescreen.search.SearchScreen
-import com.nipunapps.newsapp.feature.homescreen.search.SearchViewModel
+import com.nipunapps.newsapp.feature.search.presentation.SearchScreen
+import com.nipunapps.newsapp.feature.search.presentation.viewmodels.SearchViewModel
 import com.nipunapps.newsapp.feature.navgraph.Route
 
 

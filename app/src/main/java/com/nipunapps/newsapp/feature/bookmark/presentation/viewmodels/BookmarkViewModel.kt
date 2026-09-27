@@ -1,4 +1,4 @@
-package com.nipunapps.newsapp.feature.bookmark.presentation
+package com.nipunapps.newsapp.feature.bookmark.presentation.viewmodels
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

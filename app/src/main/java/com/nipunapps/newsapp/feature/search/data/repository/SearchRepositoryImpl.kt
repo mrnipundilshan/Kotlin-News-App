@@ -1,30 +1,32 @@
-package com.nipunapps.newsapp.feature.homescreen.data.repository
+package com.nipunapps.newsapp.feature.search.data.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.nipunapps.newsapp.core.network.NewsApi
-import com.nipunapps.newsapp.feature.homescreen.data.datasource.NewsPagingSource
 import com.nipunapps.newsapp.feature.homescreen.data.datasource.SearchNewsPagingSource
-import com.nipunapps.newsapp.core.local.NewsDao
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
-import com.nipunapps.newsapp.feature.homescreen.domain.repository.NewsRepository
+import com.nipunapps.newsapp.feature.search.domain.repository.SearchRepository
 import kotlinx.coroutines.flow.Flow
 
-class NewsRepositoryImpl (
+class SearchRepositoryImpl (
     private val newsApi: NewsApi,
-): NewsRepository{
 
-    override fun getNews(sources: List<String>): Flow<PagingData<Article>> {
+    ) : SearchRepository{
+
+    override fun searchNews(
+        searchQuery: String,
+        sources: List<String>
+    ): Flow<PagingData<Article>> {
         return Pager(
             config = PagingConfig(pageSize = 10),
             pagingSourceFactory = {
-                NewsPagingSource(
+                SearchNewsPagingSource(
+                    searchQuery = searchQuery,
                     newsApi = newsApi,
                     sources = sources.joinToString(separator = ",")
                 )
             }
         ).flow
     }
-
 }

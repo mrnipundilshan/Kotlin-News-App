@@ -1,5 +1,6 @@
-package com.nipunapps.newsapp.feature.homescreen.search
+package com.nipunapps.newsapp.feature.search.presentation.viewmodels
 
+import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,7 +8,6 @@ import androidx.paging.cachedIn
 import com.nipunapps.newsapp.feature.homescreen.domain.usecases.NewsUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import androidx.compose.runtime.State
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(

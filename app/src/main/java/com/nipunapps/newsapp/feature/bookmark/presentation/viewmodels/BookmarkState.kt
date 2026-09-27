@@ -1,4 +1,4 @@
-package com.nipunapps.newsapp.feature.bookmark.presentation
+package com.nipunapps.newsapp.feature.bookmark.presentation.viewmodels
 
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
 

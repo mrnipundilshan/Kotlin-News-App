@@ -1,4 +1,4 @@
-package com.nipunapps.newsapp.feature.homescreen.data.local
+package com.nipunapps.newsapp.core.local
 
 import androidx.room3.ColumnTypeConverter
 import androidx.room3.ProvidedColumnTypeConverter

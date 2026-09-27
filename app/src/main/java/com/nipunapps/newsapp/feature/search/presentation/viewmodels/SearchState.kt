@@ -1,4 +1,4 @@
-package com.nipunapps.newsapp.feature.homescreen.search
+package com.nipunapps.newsapp.feature.search.presentation.viewmodels
 
 import androidx.paging.PagingData
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
