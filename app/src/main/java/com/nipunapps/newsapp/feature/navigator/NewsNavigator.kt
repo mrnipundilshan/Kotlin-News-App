@@ -48,38 +48,53 @@ fun NewsNavigator(){
         mutableIntStateOf(0)
     }
 
-    selectedItem = when(backstackState?.destination?.route){
-        Route.HomeScreen.route -> 0
-        Route.SearchScreen.route -> 1
-        Route.BookMarkScreen.route -> 2
-        else -> 0
+    selectedItem = remember(key1= backstackState){
+        when(backstackState?.destination?.route){
+            Route.HomeScreen.route -> 0
+            Route.SearchScreen.route -> 1
+            Route.BookMarkScreen.route -> 2
+            else -> 0
+        }
+    }
+
+    val isBottomBarVisible = remember(key1= backstackState){
+        backstackState?.destination?.route == Route.HomeScreen.route ||
+                backstackState?.destination?.route == Route.SearchScreen.route ||
+                    backstackState?.destination?.route == Route.BookMarkScreen.route
+
     }
 
     Scaffold(
+
+
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
-            NewsBottomNavigation(
-                items = bottomNavigationItems,
-                selected = selectedItem,
-                onItemClick = { index ->
-                    when (index) {
-                        0 -> navigateToTap(
-                            navController = navController,
-                            route = Route.HomeScreen.route
-                        )
 
-                        1 -> navigateToTap(
-                            navController = navController,
-                            route = Route.SearchScreen.route
-                        )
+            if(isBottomBarVisible) {
+                NewsBottomNavigation(
+                    items = bottomNavigationItems,
+                    selected = selectedItem,
+                    onItemClick = { index ->
+                        when (index) {
+                            0 -> navigateToTap(
+                                navController = navController,
+                                route = Route.HomeScreen.route
+                            )
 
-                        2 -> navigateToTap(
-                            navController = navController,
-                            route = Route.BookMarkScreen.route
-                        )
+                            1 -> navigateToTap(
+                                navController = navController,
+                                route = Route.SearchScreen.route
+                            )
+
+                            2 -> navigateToTap(
+                                navController = navController,
+                                route = Route.BookMarkScreen.route
+                            )
+                        }
                     }
-                }
-            )
+                )
+
+            }
         }
     ) {
         val bottomPadding = it.calculateBottomPadding()

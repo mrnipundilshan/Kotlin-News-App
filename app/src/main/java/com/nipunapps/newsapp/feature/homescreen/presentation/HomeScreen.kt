@@ -26,6 +26,7 @@ import com.nipunapps.newsapp.core.components.ArticlesList
 import com.nipunapps.newsapp.core.dimension.Dimension.ExtraSmallPadding2
 import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding1
 import com.nipunapps.newsapp.core.dimension.Dimension.MediumPadding2
+import com.nipunapps.newsapp.core.dimension.Dimension.PageIndicatorWidth
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
 import com.nipunapps.newsapp.feature.homescreen.presentation.components.SearchBar
 import com.nipunapps.newsapp.feature.navgraph.Route
@@ -65,7 +66,7 @@ fun HomeScreen(
         Spacer(modifier = Modifier.height(MediumPadding1))
 
         SearchBar(
-            modifier = Modifier.padding(horizontal = ExtraSmallPadding2),
+            modifier = Modifier.padding(horizontal = MediumPadding1),
             text = "",
             readOnly = true,
             onValueChange = {},

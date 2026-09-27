@@ -6,7 +6,7 @@ import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
 class UpsertArticle (
     private val newsDao: NewsDao
 ){
-    operator fun invoke(article: Article){
-
+    suspend operator fun invoke(article: Article){
+        newsDao.upsert(article = article)
     }
 }

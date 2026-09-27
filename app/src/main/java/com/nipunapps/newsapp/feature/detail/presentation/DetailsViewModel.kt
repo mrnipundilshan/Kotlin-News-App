@@ -1,5 +1,6 @@
 package com.nipunapps.newsapp.feature.detail.presentation
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -45,7 +46,7 @@ class DetailsViewModel @Inject constructor(
         sideEffect = "Article Deleted"
     }
 
-    private fun upsertArticle(article: Article) {
+    private suspend  fun upsertArticle(article: Article) {
        newsUseCases.upsertArticle(article = article)
         sideEffect = "Article Saved"
     }
