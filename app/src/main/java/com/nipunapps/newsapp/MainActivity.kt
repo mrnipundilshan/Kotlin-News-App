@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.nipunapps.newsapp.core.components.EmptyScreen
 import com.nipunapps.newsapp.feature.homescreen.data.local.NewsDao
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Source
@@ -58,6 +59,7 @@ class MainActivity : ComponentActivity() {
                 Box(modifier = Modifier.background(color = MaterialTheme.colorScheme.background).safeDrawingPadding() ){
                     val startDestination = viewModel.startDestination
                     NavGraph(startDestination = startDestination)
+                    //EmptyScreen()
                 }
             }
         }
