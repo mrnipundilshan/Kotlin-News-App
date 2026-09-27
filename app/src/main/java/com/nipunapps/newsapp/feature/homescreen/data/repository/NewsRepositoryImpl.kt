@@ -6,12 +6,15 @@ import androidx.paging.PagingData
 import com.nipunapps.newsapp.core.network.NewsApi
 import com.nipunapps.newsapp.feature.homescreen.data.datasource.NewsPagingSource
 import com.nipunapps.newsapp.feature.homescreen.data.datasource.SearchNewsPagingSource
+import com.nipunapps.newsapp.feature.homescreen.data.local.NewsDao
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
 import com.nipunapps.newsapp.feature.homescreen.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.onEach
 
 class NewsRepositoryImpl (
-    private val newsApi: NewsApi
+    private val newsApi: NewsApi,
+    private val newsDao: NewsDao
 ): NewsRepository{
     override fun getNews(sources: List<String>): Flow<PagingData<Article>> {
         return Pager(
@@ -39,6 +42,22 @@ class NewsRepositoryImpl (
                 )
             }
         ).flow
+    }
+
+    override suspend fun upsertArticle(article: Article) {
+        newsDao.upsert(article)
+    }
+
+    override suspend fun deleteArticle(article: Article) {
+        newsDao.delete(article)
+    }
+
+    override fun selectArticles(): Flow<List<Article>> {
+        return newsDao.getArticles()
+    }
+
+    override suspend fun selectArticle(url: String): Article? {
+        return newsDao.getArticle(url)
     }
 
 }

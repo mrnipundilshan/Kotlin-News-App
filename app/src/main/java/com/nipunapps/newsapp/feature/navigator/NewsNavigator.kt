@@ -1,5 +1,6 @@
 package com.nipunapps.newsapp.feature.navigator
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -10,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
@@ -20,6 +22,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.nipunapps.newsapp.R
 import com.nipunapps.newsapp.feature.bookmark.presentation.BookMarkScreen
 import com.nipunapps.newsapp.feature.bookmark.presentation.BookmarkViewModel
+import com.nipunapps.newsapp.feature.detail.presentation.DetailsEvent
 import com.nipunapps.newsapp.feature.detail.presentation.DetailsScreen
 import com.nipunapps.newsapp.feature.detail.presentation.DetailsViewModel
 import com.nipunapps.newsapp.feature.homescreen.domain.model.Article
@@ -141,7 +144,10 @@ fun NewsNavigator(){
                 composable (route = Route.DetailsScreen.route) {
                     val viewModel: DetailsViewModel = hiltViewModel()
 
-                    // TODO: Handle Side Effect
+                    if(viewModel.sideEffect != null){
+                        Toast.makeText(LocalContext.current, viewModel.sideEffect, Toast.LENGTH_SHORT).show()
+                        viewModel.onEvent(DetailsEvent.RemoveSideEffect)
+                    }
                     navController.previousBackStackEntry?.savedStateHandle?.get<Article>("article")?.let{
                         article ->
                         DetailsScreen(article = article, event = viewModel::onEvent,
