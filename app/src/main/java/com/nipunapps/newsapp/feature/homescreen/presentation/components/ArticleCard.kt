@@ -48,11 +48,14 @@ fun ArticleCard(
         AsyncImage(
             modifier = Modifier
                 .size(ArticleCardSize)
-                .clip(MaterialTheme.shapes.medium),
+                .clip(MaterialTheme.shapes.medium)
+                .padding(end = ExtraSmallPadding2),
             model = ImageRequest.Builder(context).data(article.urlToImage).build(),
                     contentDescription = null,
                     contentScale = ContentScale.Crop
         )
+
+
 
         Column(verticalArrangement = Arrangement.SpaceAround,
             modifier = Modifier
