@@ -11,6 +11,14 @@ import com.nipunapps.newsapp.feature.bookmark.domain.usecases.UpsertArticle
 import com.nipunapps.newsapp.feature.detail.domain.usecases.SelectArticle
 import com.nipunapps.newsapp.core.local.NewsDatabase
 import com.nipunapps.newsapp.core.local.NewsTypeConverter
+import com.nipunapps.newsapp.feature.bookmark.data.datasource.BookmarkDao
+import com.nipunapps.newsapp.feature.bookmark.data.repository.BookmarkRepositoryImpl
+import com.nipunapps.newsapp.feature.bookmark.domain.repository.BookmarkRepository
+import com.nipunapps.newsapp.feature.bookmark.domain.usecases.BookmarkUseCases
+import com.nipunapps.newsapp.feature.detail.data.datasource.DetailsDao
+import com.nipunapps.newsapp.feature.detail.data.repository.DetailsRepositoryImpl
+import com.nipunapps.newsapp.feature.detail.domain.repository.DetailsRepository
+import com.nipunapps.newsapp.feature.detail.domain.usecases.DetailsUseCases
 import com.nipunapps.newsapp.feature.homescreen.data.repository.NewsRepositoryImpl
 import com.nipunapps.newsapp.feature.homescreen.domain.repository.NewsRepository
 import com.nipunapps.newsapp.feature.homescreen.domain.usecases.GetNews
@@ -21,6 +29,8 @@ import com.nipunapps.newsapp.feature.onboarding.domain.repository.LocalUserManag
 import com.nipunapps.newsapp.feature.onboarding.domain.usecases.AppEntryUseCases
 import com.nipunapps.newsapp.feature.onboarding.domain.usecases.ReadAppEntry
 import com.nipunapps.newsapp.feature.onboarding.domain.usecases.SaveAppEntry
+import com.nipunapps.newsapp.feature.search.domain.repository.SearchRepository
+import com.nipunapps.newsapp.feature.search.domain.usecases.SearchUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -64,23 +74,22 @@ object AppModule {
     @Singleton
     fun provideNewsRepository(
         newsApi: NewsApi,
-        newsDao: NewsDao
-    ): NewsRepository = NewsRepositoryImpl(newsApi, newsDao)
+    ): NewsRepository = NewsRepositoryImpl(newsApi)
 
     @Provides
     @Singleton
-    fun provideNewsUseCases(
-        newsRepository: NewsRepository,
-    ): NewsUseCases {
-        return NewsUseCases(
-            getNews = GetNews(newsRepository),
-            searchNews = SearchNews(newsRepository),
-            upsertArticle = UpsertArticle(newsRepository),
-            selectArticles = SelectArticles(newsRepository),
-            deleteArticle = DeleteArticle(newsRepository),
-            selectArticle = SelectArticle(newsRepository)
-        )
-    }
+    fun provideBookmarkRepository(
+        bookmarkDao: BookmarkDao,
+    ): BookmarkRepository = BookmarkRepositoryImpl(bookmarkDao)
+
+    @Provides
+    @Singleton
+    fun provideDetailsRepository(
+        detailsDao: DetailsDao,
+    ): DetailsRepository = DetailsRepositoryImpl(detailsDao)
+
+
+
 
     @Provides
     @Singleton
@@ -98,8 +107,59 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesNewsDao(
-        newsDatabase: NewsDatabase
-    ): NewsDao = newsDatabase.newsDao
+    fun provideBookmarkDao(
+        database: NewsDatabase
+    ): BookmarkDao = database.bookmarkDao
 
+    @Provides
+    @Singleton
+    fun provideDetailsDao(
+        database: NewsDatabase
+    ): DetailsDao = database.detailsDao
+
+
+
+    @Provides
+    @Singleton
+    fun provideNewsUseCases(
+        newsRepository: NewsRepository,
+    ): NewsUseCases {
+        return NewsUseCases(
+            getNews = GetNews(newsRepository),
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideDetailsUseCases(
+        detailsRepository: DetailsRepository
+    ) : DetailsUseCases {
+        return DetailsUseCases(
+            selectArticle = SelectArticle(detailsRepository)
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideBookmarkUseCases(
+        bookmarkRepository: BookmarkRepository
+    ) : BookmarkUseCases{
+        return BookmarkUseCases(
+            deleteArticle = DeleteArticle(bookmarkRepository),
+            selectArticles = SelectArticles(bookmarkRepository),
+            upsertArticle = UpsertArticle(bookmarkRepository)
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideSearchNewsUseCases(
+        searchRepository: SearchRepository
+    ) : SearchUseCases {
+        return SearchUseCases(
+            searchNews = SearchNews(searchRepository)
+        )
+
+
+    }
 }
