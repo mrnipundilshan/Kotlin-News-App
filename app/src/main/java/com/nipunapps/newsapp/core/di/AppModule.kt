@@ -29,6 +29,7 @@ import com.nipunapps.newsapp.feature.onboarding.domain.repository.LocalUserManag
 import com.nipunapps.newsapp.feature.onboarding.domain.usecases.AppEntryUseCases
 import com.nipunapps.newsapp.feature.onboarding.domain.usecases.ReadAppEntry
 import com.nipunapps.newsapp.feature.onboarding.domain.usecases.SaveAppEntry
+import com.nipunapps.newsapp.feature.search.data.repository.SearchRepositoryImpl
 import com.nipunapps.newsapp.feature.search.domain.repository.SearchRepository
 import com.nipunapps.newsapp.feature.search.domain.usecases.SearchUseCases
 import dagger.Module
@@ -88,7 +89,11 @@ object AppModule {
         detailsDao: DetailsDao,
     ): DetailsRepository = DetailsRepositoryImpl(detailsDao)
 
-
+    @Provides
+    @Singleton
+    fun provideSearchRepository(
+        newsApi: NewsApi,
+    ): SearchRepository = SearchRepositoryImpl(newsApi)
 
 
     @Provides
@@ -159,7 +164,7 @@ object AppModule {
         return SearchUseCases(
             searchNews = SearchNews(searchRepository)
         )
-
-
     }
+
+
 }

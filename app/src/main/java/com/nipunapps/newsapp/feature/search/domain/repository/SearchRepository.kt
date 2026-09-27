@@ -5,6 +5,5 @@ import com.nipunapps.newsapp.core.common.model.Article
 import kotlinx.coroutines.flow.Flow
 
 interface SearchRepository {
-
     fun searchNews(searchQuery: String, sources : List<String>): Flow<PagingData<Article>>
 }

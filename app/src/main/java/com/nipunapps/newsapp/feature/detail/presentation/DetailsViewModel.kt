@@ -6,6 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nipunapps.newsapp.core.common.model.Article
+import com.nipunapps.newsapp.feature.bookmark.domain.usecases.BookmarkUseCases
+import com.nipunapps.newsapp.feature.detail.domain.usecases.DetailsUseCases
 import com.nipunapps.newsapp.feature.homescreen.domain.usecases.NewsUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -13,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
-    private val newsUseCases: NewsUseCases
+    private val detailsUseCases: DetailsUseCases,
+    private val bookMarkUseCases: BookmarkUseCases
 ) : ViewModel() {
     var sideEffect by mutableStateOf<String?>(null)
             private set
@@ -22,7 +25,7 @@ class DetailsViewModel @Inject constructor(
         when(event){
             is DetailsEvent.UpsertDeleteArticle -> {
                 viewModelScope.launch {
-                    val article = newsUseCases.selectArticle(event.article.url)
+                    val article = detailsUseCases.selectArticle(event.article.url)
 
                     if (article == null){
                         upsertArticle(event.article)
@@ -41,12 +44,12 @@ class DetailsViewModel @Inject constructor(
     }
 
     private suspend fun deleteArticle(article: Article) {
-        newsUseCases.deleteArticle(article = article)
+        bookMarkUseCases.deleteArticle(article = article)
         sideEffect = "Article Deleted"
     }
 
     private suspend  fun upsertArticle(article: Article) {
-       newsUseCases.upsertArticle(article = article)
+        bookMarkUseCases.upsertArticle(article = article)
         sideEffect = "Article Saved"
     }
 }
